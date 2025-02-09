@@ -13,40 +13,6 @@
 	const earnedGems = 1000; // Replace with dynamic rank data
 	const userLeague = 'Explorer'; // Replace with dynamic rank data Explorer, Scholar, Linguist, Polyglot, Master
 
-	// Topics and Levels
-	let topics = [
-		{
-			level: 'Beginner',
-			color: 'bg-blue-100',
-			items: [
-				{ title: 'Greetings', icon: '👋' },
-				{ title: 'Numbers', icon: '🔢' },
-				{ title: 'Basic Phrases', icon: '💬' },
-				{ title: 'Colors', icon: '💬' }
-			]
-		},
-		{
-			level: 'Intermediate',
-			color: 'bg-purple-100',
-			items: [
-				{ title: 'Travel Phrases', icon: '✈️' },
-				{ title: 'Food & Dining', icon: '🍽️' },
-				{ title: 'Daily Conversations', icon: '🗣️' },
-				{ title: 'Hobby', icon: '🍽️' },
-				{ title: 'Reatil Shop', icon: '🗣️' }
-			]
-		},
-		{
-			level: 'Advanced',
-			color: 'bg-green-100',
-			items: [
-				{ title: 'Business Language', icon: '💼' },
-				{ title: 'Idioms & Expressions', icon: '📚' },
-				{ title: 'Debate & Discussion', icon: '🎤' }
-			]
-		}
-	];
-
 	// Toggle Toast
 	function toggleToast() {
 		isToastOpen = !isToastOpen;
@@ -62,11 +28,11 @@
 		<div class="container mx-auto flex items-center justify-between">
 			<!-- Left Corner: App Name -->
 			<div class="flex items-center space-x-4">
-				<button on:click={toggleToast} class="focus:outline-none">
-					<h1 class="animate-word text-4xl font-bold text-gray-800 italic hover:text-purple-600">
+				<a href="/about" class="btn">
+					<h1 class="animate-word text-4xl font-bold text-purple-900 italic hover:text-purple-600">
 						ZzishLang
 					</h1>
-				</button>
+				</a>
 			</div>
 
 			<!-- Center: Navigation Icons with Tooltips -->
@@ -265,7 +231,7 @@
 				class="flex flex-col items-center justify-center rounded-lg bg-gradient-to-r from-purple-200 to-white p-6"
 			>
 				<p class="text-4xl font-semibold text-purple-600">
-					{userLeague} <span class="text-6xl">🏆</span>
+					{userLeague} <span class="text-5xl">🏆</span>
 				</p>
 				<p class="text-xs text-gray-500">You are competing among friends.</p>
 			</div>

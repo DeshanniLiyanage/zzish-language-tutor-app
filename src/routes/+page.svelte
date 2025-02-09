@@ -48,6 +48,7 @@
 	 */
 	function selectTopic(topic) {
 		selectedTopic = topic;
+		userInput = `Your tutor is going to help you with ${selectedTopic} ..please Send`;
 	}
 
 	async function sendMessage() {
@@ -221,7 +222,13 @@
 				}`}
 			>
 				<svelte:component this={topic.icon} size={24} class="mr-4 text-gray-400" />
-				<span class="text-right text-sm font-semibold text-purple-600"> {topic.value}</span>
+				<span
+					class={`text-right text-sm font-semibold ${
+						selectedTopic === topic.value ? 'text-gray-200' : 'text-purple-600'
+					}`}
+				>
+					{topic.value}</span
+				>
 			</button>
 		{/each}
 	</div>

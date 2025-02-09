@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-6xl px-6 py-16 md:px-12">
 	<!-- Header Section -->
 	<div class="text-center">
-		<h2 class="text-4xl font-bold text-purple-800">Welcome to Language Tutor</h2>
+		<h2 class="text-4xl font-bold text-purple-800">Welcome to ZzishLang - Language Tutor</h2>
 		<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
 			An interactive platform to help you master new languages through engaging lessons, real-world
 			conversations, and AI-powered feedback. Begin your journey today!
