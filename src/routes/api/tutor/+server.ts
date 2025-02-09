@@ -2,19 +2,21 @@ export async function POST({ request }) {
 	try {
 		const { message, language, topic } = await request.json();
 		let prompt = '';
-		//	const prompt = `Translate the following text to ${language}. ${message}`;
-		if (topic != null && topic == 'General') {
-			prompt = `Translate my prompts into ${language} language and provide an English pronounciation if necessary. Prompt is ${message}.`;
+
+		// Construct the prompt based on the topic
+		if (topic != null && topic === 'General') {
+			prompt = `Translate my prompts into ${language} language and provide an English pronunciation if necessary. Prompt is ${message}.`;
 		} else {
-			prompt = `Give me an some phrases related to ${message} in ${topic} language`;
+			prompt = `Give me some phrases related to ${topic} in ${language} language.`;
 		}
 
 		const apiKey = import.meta.env.VITE_HUGGING_FACE_API_KEY; // Use environment variable
-		const model = 'EleutherAI/gpt-neo-2.7B'; // Try switching to 'gpt2' if this fails or 'EleutherAI/gpt-neo-2.7B' or 'OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5'
+		const model = 'EleutherAI/gpt-neo-2.7B'; // Model to use
 		const url = `https://api-inference.huggingface.co/models/${model}`;
 
 		console.log('Your student is here to learn', language, 'from you.');
 
+		// Send the prompt to the Hugging Face API
 		const response = await fetch(url, {
 			method: 'POST',
 			headers: {
@@ -37,26 +39,21 @@ export async function POST({ request }) {
 		// Log the full response for debugging
 		console.log('API Response:', JSON.stringify(data, null, 2));
 
-		// Hugging Face returns an array of responses
+		// Extract the generated text from the API response
+		let cleanedResponse = '';
 		if (Array.isArray(data) && data.length > 0) {
-			// Return a valid Response object
-			return new Response(JSON.stringify({ reply: data[0].generated_text }), {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			});
+			// Remove the prompt from the generated text
+			cleanedResponse = data[0].generated_text.replace(prompt, '').trim();
 		} else {
-			// Return an error response if the API response is invalid
-			return new Response(
-				JSON.stringify({ error: 'Invalid response format from Hugging Face API' }),
-				{
-					status: 500,
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				}
-			);
+			throw new Error('Invalid response format from Hugging Face API');
 		}
+
+		// Return the cleaned response to the frontend
+		return new Response(JSON.stringify({ reply: cleanedResponse }), {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 	} catch (error) {
 		console.error('Error in POST function:', error);
 

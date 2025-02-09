@@ -75,7 +75,7 @@
 		<!-- Your Friends Section -->
 		<div>
 			<h3 class="text-2xl font-semibold text-gray-900">Your Friends</h3>
-			<p class="mb-4 text-gray-600">These are your current friends on ZzishLingo</p>
+			<p class="mb-4 text-gray-600">These are your current friends on ZzishLang</p>
 
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 				<!-- Friend Card 1 -->
