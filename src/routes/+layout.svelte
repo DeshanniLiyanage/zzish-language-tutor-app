@@ -56,9 +56,7 @@
 <!-- Welcome Popup -->
 <WelcomePopup />
 
-<div
-	class="flex h-screen min-h-screen flex-col bg-[url('/background1.jpg')] bg-repeat text-gray-900"
->
+<div class="flex h-screen min-h-screen flex-col bg-gradient-to-r from-purple-200 text-gray-900">
 	<!-- ✅ Navbar -->
 	<header class="w-full bg-gray-50 px-4 py-4 shadow-md">
 		<div class="container mx-auto flex items-center justify-between">
@@ -66,7 +64,7 @@
 			<div class="flex items-center space-x-4">
 				<button on:click={toggleToast} class="focus:outline-none">
 					<h1 class="animate-word text-4xl font-bold text-gray-800 italic hover:text-purple-600">
-						ZzishLingo
+						ZzishLang
 					</h1>
 				</button>
 			</div>

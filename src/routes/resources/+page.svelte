@@ -13,14 +13,14 @@
 		{
 			title: 'Websites',
 			icon: Globe,
-			description: 'Visit the ZZishLingo website for resources, tips, and more.',
+			description: 'Visit the ZZishLang website for resources, tips, and more.',
 			link: '#',
 			color: 'bg-blue-500'
 		},
 		{
 			title: 'Apps',
 			icon: Smartphone,
-			description: 'Download the ZZishLingo app for an interactive learning experience on the go',
+			description: 'Download the ZZishLang app for an interactive learning experience on the go',
 			link: '#',
 			color: 'bg-green-500'
 		},
@@ -28,7 +28,7 @@
 			title: 'Courses',
 			icon: GraduationCap,
 			description:
-				'Take advantage of ZZishLingo guided courses designed to help you progress quickly.',
+				'Take advantage of ZZishLang guided courses designed to help you progress quickly.',
 			link: '#',
 			color: 'bg-yellow-500'
 		},

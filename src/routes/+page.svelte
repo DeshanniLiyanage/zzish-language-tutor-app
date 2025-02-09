@@ -165,7 +165,14 @@
 		{/each}
 
 		{#if isLoading}
-			<div class="text-center text-gray-500 italic">Typing...</div>
+			<div class="text-center text-gray-500 italic">Your tutor is typing...</div>
+		{:else}
+			<div class="text-center text-gray-500 italic">
+				Please select a tutor from above and type what you want to learn today.
+			</div>
+			<div class="text-center text-gray-500 italic">
+				Select a topic from below, so your tutor can give you helpful phrases.
+			</div>
 		{/if}
 	</div>
 
@@ -181,7 +188,7 @@
 		<input
 			bind:value={userInput}
 			type="text"
-			placeholder="Type your message..."
+			placeholder="Talk to your tutor..."
 			class="flex-1 rounded-lg border-2 border-gray-300 px-4 py-3 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
 			disabled={isLoading}
 		/>
