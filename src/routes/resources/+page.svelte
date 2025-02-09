@@ -6,7 +6,7 @@
 			title: 'Books',
 			icon: Book,
 			description:
-				'Explore ZZishLingo language learning books to dive deeper into language concepts.',
+				'Explore zzishlang language learning books to dive deeper into language concepts.',
 			link: '#',
 			color: 'bg-purple-500'
 		},
@@ -52,7 +52,7 @@
 <div class="flex min-h-screen flex-col items-center bg-gray-100 p-6">
 	<!-- Header -->
 	<div class="mb-8 max-w-3xl text-center">
-		<h2 class="text-3xl font-bold text-gray-900">Language Learning Resources</h2>
+		<h2 class="text-3xl font-bold text-purple-800">Language Learning Resources</h2>
 		<p class="mt-2 text-gray-600">
 			Explore top resources to enhance your language skills. From books to apps, find the perfect
 			tools to help you succeed.
@@ -71,7 +71,7 @@
 				</div>
 
 				<!-- Title -->
-				<h3 class="mt-4 text-lg font-semibold text-gray-800">{resource.title}</h3>
+				<h3 class="mt-4 text-lg font-semibold text-gray-400">{resource.title}</h3>
 
 				<!-- Description -->
 				<p class="mt-2 text-center text-sm text-gray-600">{resource.description}</p>

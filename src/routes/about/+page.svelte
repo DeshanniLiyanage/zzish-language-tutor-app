@@ -6,7 +6,7 @@
 <div class="mx-auto max-w-6xl px-6 py-16 md:px-12">
 	<!-- Header Section -->
 	<div class="text-center">
-		<h2 class="text-4xl font-bold text-gray-900">Welcome to Language Tutor</h2>
+		<h2 class="text-4xl font-bold text-purple-800">Welcome to Language Tutor</h2>
 		<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
 			An interactive platform to help you master new languages through engaging lessons, real-world
 			conversations, and AI-powered feedback. Begin your journey today!
@@ -20,7 +20,7 @@
 		>
 			<Languages class="mr-6 h-14 w-14 text-blue-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">Multiple Languages</h3>
+				<h3 class="text-xl font-semibold text-gray-400">Multiple Languages</h3>
 				<p class="mt-2 text-gray-600">
 					Learn from a wide range of languages tailored to different proficiency levels.
 				</p>
@@ -31,7 +31,7 @@
 		>
 			<Brain class="mr-6 h-14 w-14 text-green-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">AI-Powered Learning</h3>
+				<h3 class="text-xl font-semibold text-gray-400">AI-Powered Learning</h3>
 				<p class="mt-2 text-gray-600">
 					Receive real-time feedback and personalized lessons that adapt to your learning style.
 				</p>
@@ -42,7 +42,7 @@
 		>
 			<Target class="mr-6 h-14 w-14 text-red-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">Practice with Goals</h3>
+				<h3 class="text-xl font-semibold text-gray-400">Practice with Goals</h3>
 				<p class="mt-2 text-gray-600">
 					Set daily goals and track your progress to stay motivated on your learning journey.
 				</p>
@@ -52,7 +52,7 @@
 
 	<!-- Contact Section -->
 	<div class="mt-20 text-center">
-		<h2 class="text-3xl font-bold text-gray-900">Contact Us</h2>
+		<h2 class="text-3xl font-bold text-purple-800">Contact Us</h2>
 		<p class="mx-auto mt-4 max-w-xl text-lg text-gray-600">
 			We’d love to hear from you! Reach out with questions, suggestions, or feedback.
 		</p>
@@ -65,7 +65,7 @@
 		>
 			<Mail class="mr-6 h-14 w-14 text-blue-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">Email</h3>
+				<h3 class="text-xl font-semibold text-gray-500">Email</h3>
 				<p class="mt-2 text-gray-600">support@languagetutor.com</p>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 		>
 			<Phone class="mr-6 h-14 w-14 text-green-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">Phone</h3>
+				<h3 class="text-xl font-semibold text-gray-500">Phone</h3>
 				<p class="mt-2 text-gray-600">(123) 456-7890</p>
 			</div>
 		</div>
@@ -83,7 +83,7 @@
 		>
 			<MapPin class="mr-6 h-14 w-14 text-red-500" />
 			<div>
-				<h3 class="text-xl font-semibold text-gray-800">Address</h3>
+				<h3 class="text-xl font-semibold text-gray-500">Address</h3>
 				<p class="mt-2 text-gray-600">118a East Barnet Road, Barnet, EN4 8RE, England</p>
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 
 	<!-- Contact Form -->
 	<div class="mx-auto mt-16 max-w-2xl">
-		<h3 class="text-2xl font-semibold text-gray-800">Get in Touch</h3>
+		<h3 class="text-2xl font-semibold text-gray-500">Get in Touch</h3>
 		<form class="mt-8 space-y-6">
 			<div>
 				<label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>

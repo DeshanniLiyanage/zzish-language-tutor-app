@@ -3,7 +3,7 @@
 	<div class="container mx-auto px-4">
 		<!-- Page Header -->
 		<div class="mb-10 text-center">
-			<h2 class="text-3xl font-semibold text-gray-900">Connect with Friends</h2>
+			<h2 class="text-3xl font-semibold text-purple-800">Connect with Friends</h2>
 			<p class="mt-2 text-lg text-gray-600">
 				Expand your language learning experience by connecting with friends. Share progress, tips,
 				and support each other.
@@ -22,7 +22,7 @@
 
 		<!-- Friends You Might Know Section -->
 		<div class="mb-8">
-			<h3 class="text-2xl font-semibold text-gray-900">Friends You Might Know</h3>
+			<h3 class="text-2xl font-semibold text-purple-500">Friends You Might Know</h3>
 			<p class="mb-4 text-gray-600">Based on your interests and language preferences</p>
 
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -74,7 +74,7 @@
 
 		<!-- Your Friends Section -->
 		<div>
-			<h3 class="text-2xl font-semibold text-gray-900">Your Friends</h3>
+			<h3 class="text-2xl font-semibold text-purple-500">Your Friends</h3>
 			<p class="mb-4 text-gray-600">These are your current friends on ZzishLang</p>
 
 			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -126,5 +126,5 @@
 
 <!-- Optional Footer Section -->
 <footer class="bg-gray-800 py-6 text-center text-white">
-	<p class="text-sm">© 2025 ZzishLingo. All rights reserved.</p>
+	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
 </footer>

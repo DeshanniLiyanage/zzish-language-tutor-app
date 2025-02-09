@@ -220,7 +220,7 @@
 						: `${topic.bgColor} ${topic.borderColor} hover:${topic.hoverBgColor} hover:${topic.hoverBorderColor} text-gray-800 shadow-lg backdrop-blur-sm`
 				}`}
 			>
-				<svelte:component this={topic.icon} size={24} class="mr-2 text-white" />
+				<svelte:component this={topic.icon} size={24} class="mr-4 text-gray-400" />
 				<span class="text-right text-sm font-semibold text-purple-600"> {topic.value}</span>
 			</button>
 		{/each}
