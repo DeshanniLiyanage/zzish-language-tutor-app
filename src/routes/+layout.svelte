@@ -1,12 +1,12 @@
 <script lang="ts">
 	import WelcomePopup from '$lib/components/WelcomePopup.svelte';
-	import { Award, BookOpen, Home, Info, MessageCircleX, Swords, Users } from 'lucide-svelte';
+	import { Award, BookOpen, CircleX, Home, Info, Swords, Users } from 'lucide-svelte';
 	import '../app.css';
 	let year = new Date().getFullYear();
 	let isToastOpen = true; // Controls the visibility of the toast
 	// User details
-	const userName = 'John Doe'; // Replace with dynamic user data
-	const userImage = 'https://randomuser.me/api/portraits/women/50.jpg'; // Replace with dynamic user image
+	const userName = 'Sheldon Cooper'; // Replace with dynamic user data
+	const userImage = 'https://randomuser.me/api/portraits/men/60.jpg'; // Replace with dynamic user image
 	const userStreak = 5; // Replace with dynamic streak data
 	const userLevel = 'Beginner'; // Replace with dynamic level data
 	const userRank = 125; // Replace with dynamic rank data
@@ -160,7 +160,7 @@
 			<div class="group relative flex items-center space-x-4">
 				<!-- User Name -->
 				<h6
-					class="h6 w-32 truncate text-gray-800 transition-all duration-300 ease-in-out group-hover:text-purple-600"
+					class="h6 w-50 truncate text-gray-800 transition-all duration-300 ease-in-out group-hover:text-purple-600"
 				>
 					{userName}!
 				</h6>
@@ -205,12 +205,12 @@
 				class="flex items-center space-x-4 rounded-lg bg-gradient-to-r from-purple-200 to-white p-6"
 			>
 				<img
-					src="/zzishlingo.png"
+					src="/zzishlang.png"
 					alt="App Logo"
 					class="h-28 w-28 transform rounded-lg transition-transform hover:scale-105"
 				/>
 				<div>
-					<h1 class="text-3xl font-bold text-gray-800">ZzishLingo</h1>
+					<h1 class="text-3xl font-bold text-gray-800">zzishlang</h1>
 				</div>
 			</div> -->
 
@@ -274,7 +274,7 @@
 		<!-- Close Button Outside the Tiles -->
 		<div class="absolute top-0 right-0 p-4">
 			<button on:click={toggleToast} class="text-xl text-red-500 transition-all hover:text-red-600">
-				<MessageCircleX />
+				<CircleX class="text-purple-600" />
 			</button>
 		</div>
 	</div>

@@ -70,6 +70,7 @@ export async function POST({ request }) {
 	}
 }
 
+// possible prompt generator
 function generatePrompt(language: string, userMessage: string, level = 'beginner') {
 	return `
 	  You are an expert language tutor specializing in teaching ${language}. Your goal is to help me learn ${language} in a fun, engaging, and effective way. Follow these guidelines:
