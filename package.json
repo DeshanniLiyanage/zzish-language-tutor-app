@@ -30,6 +30,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@mui/icons-material": "^6.4.3",
 		"cookie": "^1.0.2",
 		"lucide-svelte": "^0.475.0"
 	}
