@@ -150,6 +150,17 @@
 <!-- Chat Conversation -->
 <div class="mx-auto max-w-7xl px-4">
 	<div class="h-115 space-y-4 overflow-y-auto rounded-lg bg-gray-50 p-6 shadow-inner">
+		{#if isLoading}
+			<div class="text-center text-gray-500 italic">Your tutor is typing...</div>
+		{:else}
+			<div class="text-center text-gray-500 italic">
+				Please select a tutor from above and type what you want to learn today..
+			</div>
+			<div class="text-center text-gray-500 italic">
+				Select a topic from below, so your tutor can give you helpful phrases..
+			</div>
+		{/if}
+
 		{#each conversation as msg}
 			<div
 				transition:fade
@@ -163,17 +174,6 @@
 				<p>{msg.content}</p>
 			</div>
 		{/each}
-
-		{#if isLoading}
-			<div class="text-center text-gray-500 italic">Your tutor is typing...</div>
-		{:else}
-			<div class="text-center text-gray-500 italic">
-				Please select a tutor from above and type what you want to learn today.
-			</div>
-			<div class="text-center text-gray-500 italic">
-				Select a topic from below, so your tutor can give you helpful phrases.
-			</div>
-		{/if}
 	</div>
 
 	<!-- Error Message -->

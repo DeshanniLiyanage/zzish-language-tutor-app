@@ -4,9 +4,9 @@ export async function POST({ request }) {
 		let prompt = '';
 		//	const prompt = `Translate the following text to ${language}. ${message}`;
 		if (topic != null && topic == 'General') {
-			prompt = `Translate my prompts into ${language} and provide an English pronounciation if necessary. Prompt is ${message}`;
+			prompt = `Translate my prompts into ${language} language and provide an English pronounciation if necessary. Prompt is ${message}.`;
 		} else {
-			prompt = `Give me an introduction of ${message} in ${topic}`;
+			prompt = `Give me an some phrases related to ${message} in ${topic} language`;
 		}
 
 		const apiKey = import.meta.env.VITE_HUGGING_FACE_API_KEY; // Use environment variable
@@ -25,7 +25,7 @@ export async function POST({ request }) {
 				inputs: prompt,
 				parameters: {
 					max_length: 100, // Limit response length
-					temperature: 0.7 // Control creativity (lower = more focused)
+					temperature: 0.5 // Control creativity (lower = more focused)
 				}
 			})
 		});
