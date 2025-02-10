@@ -32,4 +32,23 @@
 	.hover\:animate-wiggle:hover {
 		animation: wiggle 0.3s ease-in-out;
 	}
+
+  .toast-enter {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .toast-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .toast-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast-exit-active {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 300ms, transform 300ms;
+  }
   
