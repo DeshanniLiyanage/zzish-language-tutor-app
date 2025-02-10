@@ -89,7 +89,7 @@
 			const data = await response.json();
 			let reply = '';
 			if (model == TRANSLATOR_MODEL) {
-				reply = data.translatedText;
+				reply = `Your translation is : ${data.translatedText}`;
 			} else {
 				reply = data.reply;
 			}
