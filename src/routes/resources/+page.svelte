@@ -90,5 +90,5 @@
 
 <!-- Footer Section -->
 <footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
-	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+	<p class="text-sm">© 2025 ZzishLang. All rights reserved.</p>
 </footer>

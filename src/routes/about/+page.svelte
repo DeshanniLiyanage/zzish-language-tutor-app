@@ -7,7 +7,8 @@
 	<!-- Header Section -->
 	<div class="text-center">
 		<img src="/zzishlang.jpg" alt="zzishlang Logo" class="mx-auto mb-4 h-38 w-38 rounded-full" />
-		<h2 class="text-4xl font-bold text-purple-800">Welcome to ZzishLang - Language Tutor</h2>
+		<h4 class="font-bold text-purple-500">Connecting Cultures, One Word at a Time.</h4>
+		<h2 class="mt-4 text-4xl font-bold text-purple-800">Welcome to ZzishLang - Language Tutor</h2>
 		<p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
 			An interactive platform to help you master new languages through engaging lessons, real-world
 			conversations, and AI-powered feedback. Begin your journey today!
@@ -137,7 +138,7 @@
 
 <!-- Footer Section -->
 <footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
-	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+	<p class="text-sm">© 2025 ZzishLang. All rights reserved.</p>
 </footer>
 
 <style>

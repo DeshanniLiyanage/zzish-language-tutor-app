@@ -2,8 +2,9 @@
 	import WelcomePopup from '$lib/components/WelcomePopup.svelte';
 	import { Award, BookOpen, CircleX, Home, Info, Swords, Users } from 'lucide-svelte';
 	import '../app.css';
+
 	let year = new Date().getFullYear();
-	let isToastOpen = true; // Controls the visibility of the toast
+	let isToastOpen = false; // Controls the visibility of the toast
 	// User details
 	const userName = 'Sheldon Cooper'; // Replace with dynamic user data
 	const userImage = 'https://randomuser.me/api/portraits/men/60.jpg'; // Replace with dynamic user image
