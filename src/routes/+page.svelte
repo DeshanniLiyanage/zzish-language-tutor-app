@@ -4,6 +4,9 @@
 	import { Send } from 'lucide-svelte';
 	import { fade, slide } from 'svelte/transition';
 
+	const TRANSLATOR_MODEL = '/api/translator';
+	const VOCABULARY_MODEL = '/api/vocabulary';
+
 	let userInput = '';
 	let model = '';
 	/**
@@ -13,7 +16,7 @@
 	/**
 	 * @type {string | null}
 	 */
-	let selectedLanguage = 'en'; // Default language
+	let selectedLanguage = 'fr'; // Default language
 	let isLoading = false;
 	let errorMessage = '';
 	let timeoutError = false;
@@ -42,9 +45,9 @@
 
 	function findLLM() {
 		if (selectedTopic != null) {
-			model = '/api/vocabulary';
+			model = VOCABULARY_MODEL;
 		} else {
-			model = '/api/translator';
+			model = TRANSLATOR_MODEL;
 		}
 	}
 
@@ -84,10 +87,17 @@
 			}
 
 			const data = await response.json();
+			let reply = '';
+			if (model == TRANSLATOR_MODEL) {
+				reply = data.translatedText;
+			} else {
+				reply = data.reply;
+			}
+
 			conversation = [
 				...conversation,
 				{ role: 'user', content: userInput },
-				{ role: 'tutor', content: data.reply }
+				{ role: 'tutor', content: reply }
 			];
 
 			// Show achievement popup after every 3 messages
@@ -129,7 +139,7 @@
 			{#each languages as language}
 				<button
 					on:click={() => selectLanguage(language.value)}
-					class={`flex transform items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out sm:px-5 sm:py-3 sm:text-base ${
+					class={`flex transform items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-purple-900 transition-all duration-300 ease-in-out sm:px-5 sm:py-3 sm:text-base ${
 						selectedLanguage === language.value
 							? 'scale-105 bg-purple-600 text-white shadow-xl'
 							: 'bg-gray-200 text-gray-800 hover:scale-105 hover:bg-gray-300'
@@ -170,8 +180,8 @@
 				transition:fade
 				class={`max-w-[75%] rounded-lg p-3 shadow-lg sm:p-4 ${
 					msg.role === 'user'
-						? 'ml-auto self-end bg-teal-400 text-white'
-						: 'self-start bg-indigo-400 text-white'
+						? 'ml-auto self-end bg-gradient-to-r from-teal-300 to-teal-200 text-white'
+						: 'self-start bg-gradient-to-r from-indigo-300 to-indigo-200 text-white'
 				}`}
 			>
 				<strong>{msg.role === 'user' ? 'You:' : 'Tutor:'}</strong>
@@ -214,7 +224,7 @@
 
 <!-- Bottom Section: Topics to Discuss with Tutor -->
 <div
-	class="via-white-600 mx-auto mt-8 flex max-w-7xl flex-col justify-end rounded-lg bg-gradient-to-r from-purple-400 to-gray-400 p-6 px-4 sm:px-6 lg:px-8"
+	class="via-white-600 mx-auto mt-8 mb-4 flex max-w-7xl flex-col justify-end rounded-lg bg-gradient-to-r from-purple-400 to-gray-400 p-6 px-4 sm:px-6 lg:px-8"
 >
 	<h4 class="mb-4 text-xl font-bold text-white sm:mb-8 sm:text-2xl">Learn Vocabulary</h4>
 	<div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
