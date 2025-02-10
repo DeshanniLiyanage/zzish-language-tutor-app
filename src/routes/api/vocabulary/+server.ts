@@ -10,15 +10,15 @@ export async function POST({ request }) {
 		const { message, targetLanguage, topic } = await request.json();
 		const apiKey = import.meta.env.VITE_HUGGING_FACE_API_KEY; // Use environment variable
 		const model = 'google/gemma-7b'; // to converse in different topics
-
+		console.log('language ', targetLanguage, 'message', message, 'topic', topic);
 		let language = getLabelByValue(targetLanguage);
-		let prompt = `Write ${topic} related vocabulary of 20 words in ${language} `;
+		let prompt = `Write a list of 20  ${topic} related vocabulary words in ${language} language `;
 
 		const url = `https://api-inference.huggingface.co/models/${model}`;
 		console.log(
-			'Your student is here to learn vocabulary of',
+			'Your student is here to learn vocabulary related to',
 			topic,
-			' in ',
+			'in',
 			language,
 			' language from you.'
 		);
@@ -86,6 +86,7 @@ export async function POST({ request }) {
 		let rearrangedresponse = '';
 		if (cleanedResponse) {
 			rearrangedresponse = removeStepPattern(cleanedResponse);
+			rearrangedresponse = formatText(rearrangedresponse);
 		}
 		// Return the cleaned response to the frontend
 		return new Response(JSON.stringify({ reply: rearrangedresponse }), {
@@ -107,6 +108,22 @@ export async function POST({ request }) {
 			}
 		);
 	}
+}
+
+function formatText(text: string) {
+	// Remove HTML tags using a regular expression
+	let strippedText = text.replace(/<[^>]+>()/g, '');
+
+	// Split the text into sentences based on punctuation
+	let sentences = strippedText.split(/[.!?]/);
+
+	// Filter out any empty strings from the array
+	sentences = sentences.filter((sentence) => sentence.trim() !== '');
+
+	// Join the sentences with a newline character
+	let formattedText = sentences.join('\n');
+
+	return formattedText;
 }
 
 function removeStepPattern(answer: string) {

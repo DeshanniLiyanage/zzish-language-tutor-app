@@ -12,7 +12,7 @@ export const languages = [
 	{ value: 'ar', label: 'Arabic', flag: '🇸🇦' }
 ];
 
-export function getLabelByValue(value: string) {
-	const language = languages.find((lang) => lang.value === value);
+export function getLabelByValue(input: string) {
+	const language = languages.find((lang) => lang.value === input);
 	return language ? language.label : null;
 }

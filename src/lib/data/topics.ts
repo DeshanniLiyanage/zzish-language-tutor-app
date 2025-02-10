@@ -3,10 +3,11 @@ import {
 	CheckCircle,
 	Cloud,
 	Compass,
+	Croissant,
 	Hash,
-	HelpCircle,
 	MapPin,
 	Palette,
+	PawPrint,
 	Shirt,
 	ShoppingBag,
 	Users
@@ -59,13 +60,13 @@ export const topics = [
 		icon: Shirt
 	},
 	{
-		value: 'Ask help',
-		label: 'help',
+		value: 'Food',
+		label: 'food',
 		bgColor: 'bg-red-100',
 		borderColor: 'border-red-200',
 		hoverBgColor: 'bg-red-200',
 		hoverBorderColor: 'border-red-300',
-		icon: HelpCircle
+		icon: Croissant
 	},
 	{
 		value: 'Shopping',
@@ -97,10 +98,10 @@ export const topics = [
 	{
 		value: 'Colors',
 		label: 'Colors',
-		bgColor: 'bg-blue-100',
-		borderColor: 'border-blue-200',
-		hoverBgColor: 'bg-blue-200',
-		hoverBorderColor: 'border-blue-300',
+		bgColor: 'bg-purple-100',
+		borderColor: 'border-purple-200',
+		hoverBgColor: 'bg-purple-200',
+		hoverBorderColor: 'border-purple-300',
 		icon: Palette
 	},
 	{
@@ -113,12 +114,12 @@ export const topics = [
 		icon: Users
 	},
 	{
-		value: 'Words',
-		label: 'Words',
+		value: 'Animals',
+		label: 'Animals',
 		bgColor: 'bg-orange-100',
 		borderColor: 'border-orange-200',
 		hoverBgColor: 'bg-orange-200',
 		hoverBorderColor: 'border-orange-300',
-		icon: Hash
+		icon: PawPrint
 	}
 ];
