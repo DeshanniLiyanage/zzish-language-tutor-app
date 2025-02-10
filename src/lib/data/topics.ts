@@ -14,6 +14,15 @@ import {
 
 export const topics = [
 	{
+		value: null,
+		label: 'None',
+		bgColor: 'bg-pink-100',
+		borderColor: 'border-pink-200',
+		hoverBgColor: 'bg-pink-200',
+		hoverBorderColor: 'border-pink-300',
+		icon: CheckCircle
+	},
+	{
 		value: 'Hobbies',
 		label: 'Hobbies',
 		bgColor: 'bg-teal-100',
@@ -21,15 +30,6 @@ export const topics = [
 		hoverBgColor: 'bg-teal-200',
 		hoverBorderColor: 'border-teal-300',
 		icon: Airplay
-	},
-	{
-		value: 'Grammar',
-		label: 'Grammar',
-		bgColor: 'bg-pink-100',
-		borderColor: 'border-pink-200',
-		hoverBgColor: 'bg-pink-200',
-		hoverBorderColor: 'border-pink-300',
-		icon: CheckCircle
 	},
 	{
 		value: 'Travel',

@@ -1,33 +1,27 @@
+import { getLabelByValue } from '$lib/data/languages';
+
 export async function POST({ request }) {
 	const MAX_RETRIES = 3; // Maximum number of retries
 	const RETRY_DELAY = 5000; // Delay between retries in milliseconds
+	console.log('You are at Vocabulary Model');
 
 	try {
-		const TRANSLATION = 'facebook/m2m100_418M'; // for translations
-		const CHAT = 'google/gemma-7b'; // to converse in different topics
-		const GRAMMAR = 'grammarly/coedit-large'; // to learn grammar
-		const sourceLanguage = 'en';
-
 		// Extract input data from the request
 		const { message, targetLanguage, topic } = await request.json();
 		const apiKey = import.meta.env.VITE_HUGGING_FACE_API_KEY; // Use environment variable
+		const model = 'google/gemma-7b'; // to converse in different topics
 
-		let prompt = '';
-		let model = '';
-
-		// Construct the prompt based on the topic & assign a model
-		if (topic != null && topic === 'General') {
-			// For translation, use facebook/m2m100_418M
-			prompt = `Translate the following text from ${sourceLanguage} to ${targetLanguage}: ${message}`;
-			model = TRANSLATION;
-		} else {
-			// For conversational topics, use google/gemma-7b
-			prompt = `Write ${topic} related vocabulary of 20 words in ${targetLanguage} `;
-			model = CHAT;
-		}
+		let language = getLabelByValue(targetLanguage);
+		let prompt = `Write ${topic} related vocabulary of 20 words in ${language} `;
 
 		const url = `https://api-inference.huggingface.co/models/${model}`;
-		console.log('Your student is here to learn', targetLanguage || topic, 'from you.');
+		console.log(
+			'Your student is here to learn vocabulary of',
+			topic,
+			' in ',
+			language,
+			' language from you.'
+		);
 
 		let retries = 0;
 		let response;
