@@ -5,36 +5,21 @@
 	import { fade, slide } from 'svelte/transition';
 
 	let userInput = '';
+	let model = '';
 	/**
 	 * @type {string | any[]}
 	 */
 	let conversation = [];
-	let selectedLanguage = 'French'; // Default language
+	let selectedLanguage = 'en'; // Default language
 	let isLoading = false;
 	let errorMessage = '';
 	let timeoutError = false;
 	let showAchievementPopup = false; // Control achievement popup visibility
 
-	let selectedTopic = 'General'; // Default topic
-
-	// Challenges data
-	const challenges = [
-		{
-			title: '30-Day Vocabulary Challenge',
-			description: 'Learn 5 new words every day for 30 days.',
-			progress: 60
-		},
-		{
-			title: 'Grammar Mastery Challenge',
-			description: 'Complete 20 grammar exercises in a week.',
-			progress: 40
-		},
-		{
-			title: 'Conversation Practice Challenge',
-			description: 'Have 10 conversations in your target language.',
-			progress: 80
-		}
-	];
+	/**
+	 * @type {string | null}
+	 */
+	let selectedTopic = null; // Default topic
 
 	/**
 	 * @param {string} language
@@ -44,11 +29,20 @@
 	}
 
 	/**
-	 * @param {string} topic
+	 * @param {string | null} topic
 	 */
 	function selectTopic(topic) {
 		selectedTopic = topic;
+
 		userInput = `Your tutor is going to help you with ${selectedTopic} ..please Send`;
+	}
+
+	function findLLM() {
+		if (selectedTopic != null) {
+			model = '/api/vocabulary';
+		} else {
+			model = '/api/translator';
+		}
 	}
 
 	async function sendMessage() {
@@ -58,6 +52,8 @@
 		errorMessage = '';
 		timeoutError = false;
 
+		findLLM();
+
 		// Set a timeout for 60 seconds
 		const timeout = setTimeout(() => {
 			timeoutError = true;
@@ -66,7 +62,7 @@
 		}, 60000);
 
 		try {
-			const response = await fetch('/api/tutor', {
+			const response = await fetch(`${model}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -88,7 +84,7 @@
 			conversation = [
 				...conversation,
 				{ role: 'user', content: userInput },
-				{ role: 'tutor', content: data.reply }
+				{ role: 'tutor', content: data.translatedText }
 			];
 
 			// Show achievement popup after every 3 messages
@@ -127,14 +123,14 @@
 {/if}
 
 <!-- Top Bar -->
-<div class="mx-auto max-w-7xl px-4">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 	<!-- Language Selection -->
 	<div class="mx-auto mb-6 max-w-6xl overflow-x-auto pb-2">
-		<div class="justify-left flex space-x-4 overflow-x-auto">
+		<div class="flex space-x-4 overflow-x-auto">
 			{#each languages as language}
 				<button
 					on:click={() => selectLanguage(language.value)}
-					class={`text-m flex transform items-center space-x-2 rounded-lg px-5 py-3 font-medium transition-all duration-300 ease-in-out ${
+					class={`flex transform items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out sm:px-5 sm:py-3 sm:text-base ${
 						selectedLanguage === language.value
 							? 'scale-105 bg-purple-600 text-white shadow-xl'
 							: 'bg-gray-200 text-gray-800 hover:scale-105 hover:bg-gray-300'
@@ -149,8 +145,10 @@
 </div>
 
 <!-- Chat Conversation -->
-<div class="mx-auto max-w-7xl px-4">
-	<div class="h-115 space-y-4 overflow-y-auto rounded-lg bg-gray-50 p-6 shadow-inner">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	<div
+		class="h-96 space-y-4 overflow-y-auto rounded-lg bg-gray-50 p-4 shadow-inner sm:h-120 sm:p-6"
+	>
 		{#if isLoading}
 			<div class="text-center text-gray-500 italic">Your tutor is typing...</div>
 		{:else}
@@ -165,7 +163,7 @@
 		{#each conversation as msg}
 			<div
 				transition:fade
-				class={`max-w-[75%] rounded-lg p-4 shadow-lg ${
+				class={`max-w-[75%] rounded-lg p-3 shadow-lg sm:p-4 ${
 					msg.role === 'user'
 						? 'ml-auto self-end bg-blue-500 text-white'
 						: 'self-start bg-green-500 text-white'
@@ -189,19 +187,20 @@
 		<input
 			bind:value={userInput}
 			type="text"
+			lang="en"
 			placeholder="Talk to your tutor..."
-			class="flex-1 rounded-lg border-2 border-gray-300 px-4 py-3 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+			class="flex-1 rounded-lg border-2 border-gray-300 px-3 py-2 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none sm:px-4 sm:py-3"
 			disabled={isLoading}
 		/>
 		<button
 			on:click={sendMessage}
-			class="flex items-center gap-3 rounded-full bg-blue-500 px-5 py-3 text-white shadow-lg transition-all hover:bg-blue-600 disabled:bg-blue-300"
+			class="flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg transition-all hover:bg-blue-600 disabled:bg-blue-300 sm:gap-3 sm:px-5 sm:py-3"
 			disabled={isLoading}
 		>
 			{#if isLoading}
 				<span>Sending...</span>
 			{:else}
-				<Send class="h-5 w-5" />
+				<Send class="h-4 w-4 sm:h-5 sm:w-5" />
 				<span>Send</span>
 			{/if}
 		</button>
@@ -209,26 +208,29 @@
 </div>
 
 <!-- Bottom Section: Topics to Discuss with Tutor -->
-<div class="mx-auto mt-8 max-w-7xl px-4">
-	<div class="grid grid-cols-2 gap-4 sm:grid-cols-6">
+<div
+	class="via-white-600 mx-auto mt-8 flex max-w-7xl flex-col justify-end rounded-lg bg-gradient-to-r from-gray-200 to-purple-200 p-6 px-4 sm:px-6 lg:px-8"
+>
+	<h4 class="mb-4 text-xl font-bold text-white sm:mb-8 sm:text-2xl">Learn Vocabulary</h4>
+	<div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
 		{#each topics as topic}
 			<button
 				on:click={() => selectTopic(topic.value)}
 				aria-label={`Discuss ${topic.value}`}
-				class={`group relative flex items-center justify-center rounded-lg p-3 transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none ${
+				class={`group relative flex items-center justify-center rounded-lg p-2 transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none sm:p-3 ${
 					selectedTopic === topic.value
 						? 'border border-purple-300/20 bg-purple-600/80 text-white shadow-lg backdrop-blur-sm'
 						: `${topic.bgColor} ${topic.borderColor} hover:${topic.hoverBgColor} hover:${topic.hoverBorderColor} text-gray-800 shadow-lg backdrop-blur-sm`
 				}`}
 			>
-				<svelte:component this={topic.icon} size={24} class="mr-4 text-gray-400" />
+				<svelte:component this={topic.icon} size={20} class="mr-2 text-gray-400 sm:mr-4" />
 				<span
-					class={`text-right text-sm font-semibold ${
+					class={`text-right text-xs font-semibold sm:text-sm ${
 						selectedTopic === topic.value ? 'text-gray-200' : 'text-purple-600'
 					}`}
 				>
-					{topic.value}</span
-				>
+					{topic.value}
+				</span>
 			</button>
 		{/each}
 	</div>
