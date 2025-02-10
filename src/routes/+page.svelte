@@ -180,8 +180,8 @@
 				transition:fade
 				class={`max-w-[75%] rounded-lg p-3 shadow-lg sm:p-4 ${
 					msg.role === 'user'
-						? 'ml-auto self-end bg-gradient-to-r from-teal-300 to-teal-200 text-white'
-						: 'self-start bg-gradient-to-r from-indigo-300 to-indigo-200 text-white'
+						? 'ml-auto self-end bg-gradient-to-r from-teal-400 to-teal-300 text-white'
+						: 'self-start bg-gradient-to-r from-indigo-400 to-indigo-300 text-white'
 				}`}
 			>
 				<strong>{msg.role === 'user' ? 'You:' : 'Tutor:'}</strong>
