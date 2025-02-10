@@ -18,7 +18,7 @@
 			</p>
 			<button
 				on:click={closePopup}
-				class="rounded-lg bg-blue-500 px-6 py-2 text-white transition-all hover:bg-blue-600"
+				class="rounded-lg bg-purple-500 px-6 py-2 text-white transition-all hover:bg-purple-600"
 			>
 				Get Started
 			</button>

@@ -3,12 +3,11 @@
 	import { Award, BookOpen, CircleX, Home, Info, Swords, Users } from 'lucide-svelte';
 	import '../app.css';
 	let year = new Date().getFullYear();
-	let isToastOpen = false; // Controls the visibility of the toast
+	let isToastOpen = true; // Controls the visibility of the toast
 	// User details
 	const userName = 'Sheldon Cooper'; // Replace with dynamic user data
 	const userImage = 'https://randomuser.me/api/portraits/men/60.jpg'; // Replace with dynamic user image
 	const userStreak = 5; // Replace with dynamic streak data
-	const userLevel = 'Beginner'; // Replace with dynamic level data
 	const userRank = 125; // Replace with dynamic rank data
 	const earnedGems = 1000; // Replace with dynamic rank data
 	const userLeague = 'Explorer'; // Replace with dynamic rank data Explorer, Scholar, Linguist, Polyglot, Master
@@ -26,7 +25,7 @@
 <!-- Welcome Popup -->
 <WelcomePopup />
 
-<div class="flex flex-col bg-gradient-to-r from-purple-200 text-gray-900">
+<div class="flex flex-col bg-gradient-to-r from-purple-300 to-gray-300 text-gray-900">
 	<!-- Navbar -->
 	<header class="w-full bg-gray-50 px-4 py-4 shadow-md">
 		<div
@@ -51,7 +50,7 @@
 						href="/"
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<Home size={24} class="text-purple-500" />
+						<Home size={48} class="text-purple-500" />
 					</a>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -65,7 +64,7 @@
 						href="/friends"
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<Users size={24} class="text-purple-500" />
+						<Users size={48} class="text-purple-500" />
 					</a>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -79,7 +78,7 @@
 						href="/challenges"
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<Swords size={24} class="text-purple-500" />
+						<Swords size={48} class="text-purple-500" />
 					</a>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -93,7 +92,7 @@
 						href="/resources"
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<BookOpen size={24} class="text-purple-500" />
+						<BookOpen size={48} class="text-purple-500" />
 					</a>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -107,7 +106,7 @@
 						href="/about"
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<Info size={24} class="text-purple-500" />
+						<Info size={48} class="text-purple-500" />
 					</a>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -121,7 +120,7 @@
 						on:click={toggleToast}
 						class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 transition-all duration-300 ease-in-out hover:bg-gray-300 md:h-16 md:w-16"
 					>
-						<Award size={24} class="text-purple-500" />
+						<Award size={48} class="text-purple-500" />
 					</button>
 					<span
 						class="absolute top-14 left-1/2 -translate-x-1/2 transform rounded bg-black px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100 md:top-18"
@@ -132,13 +131,6 @@
 
 			<!-- Right Corner: User Icon -->
 			<div class="group relative flex items-center space-x-4">
-				<!-- User Name -->
-				<h6
-					class="h6 w-50 truncate text-gray-800 transition-all duration-300 ease-in-out group-hover:text-purple-600"
-				>
-					{userName}!
-				</h6>
-
 				<!-- User Image -->
 				<button on:click={toggleToast} class="group relative focus:outline-none">
 					<!-- User Image with hover scale effect and transition -->
@@ -146,7 +138,7 @@
 					<img
 						src={userImage}
 						alt="User Image"
-						class="h-10 w-10 transform rounded-full border-2 border-blue-500 transition-transform hover:scale-105 md:h-12 md:w-12"
+						class="h-10 w-10 transform rounded-full border-2 border-purple-500 transition-transform hover:scale-105 md:h-12 md:w-12"
 					/>
 					<!-- Popup label (like tooltip) -->
 					<span
@@ -155,6 +147,16 @@
 						View Profile
 					</span>
 				</button>
+				<!-- User Name -->
+				<h6
+					class="h6 truncate text-purple-900 transition-all duration-300 ease-in-out group-hover:text-purple-600"
+				>
+					<p>
+						<span class="block text-3xl font-bold">Hello!</span>
+						<span class="block text-xl">{userName}!</span>
+					</p>
+					<!-- Hello! \n {userName}! -->
+				</h6>
 			</div>
 		</div>
 	</header>

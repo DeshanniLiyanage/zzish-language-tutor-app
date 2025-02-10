@@ -15,7 +15,7 @@
 			<input
 				type="text"
 				id="search-friends"
-				class="w-full max-w-md rounded-lg border-2 border-gray-300 p-3 text-lg focus:border-blue-500 focus:outline-none"
+				class="w-full max-w-md rounded-lg border-2 border-gray-300 p-3 text-lg focus:border-purple-500 focus:outline-none"
 				placeholder="Search for friends by name or username"
 			/>
 		</div>
@@ -42,7 +42,7 @@
 							<p class="text-sm text-gray-600">🔥 15-day streak | 🏆 Gold League | 📊 Rank #42</p>
 						</div>
 					</div>
-					<button class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+					<button class="rounded-lg bg-purple-500 px-4 py-2 text-white hover:bg-purple-600"
 						>Add Friend</button
 					>
 				</div>
@@ -65,7 +65,7 @@
 							</p>
 						</div>
 					</div>
-					<button class="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+					<button class="rounded-lg bg-purple-500 px-4 py-2 text-white hover:bg-purple-600"
 						>Add Friend</button
 					>
 				</div>
@@ -124,7 +124,7 @@
 	</div>
 </section>
 
-<!-- Optional Footer Section -->
-<footer class="bg-gray-800 py-6 text-center text-white">
+<!-- Footer Section -->
+<footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
 	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
 </footer>

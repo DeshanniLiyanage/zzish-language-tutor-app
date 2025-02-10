@@ -84,14 +84,17 @@
 			{#each dailyChallenges as challenge}
 				<div class="rounded-lg bg-white p-6 shadow-md transition-all hover:shadow-lg">
 					<div class="mb-4 flex items-center space-x-4">
-						<div class="rounded-full bg-blue-100 p-3">
-							<svelte:component this={challenge.icon} class="h-6 w-6 text-blue-500" />
+						<div class="rounded-full bg-purple-100 p-3">
+							<svelte:component this={challenge.icon} class="h-6 w-6 text-purple-500" />
 						</div>
 						<h3 class="text-lg font-semibold text-gray-500">{challenge.title}</h3>
 					</div>
 					<p class="mb-4 text-sm text-gray-600">{challenge.description}</p>
 					<div class="h-2 rounded-full bg-gray-200">
-						<div class="h-2 rounded-full bg-blue-500" style={`width: ${challenge.progress}%`}></div>
+						<div
+							class="h-2 rounded-full bg-purple-500"
+							style={`width: ${challenge.progress}%`}
+						></div>
 					</div>
 					<p class="mt-2 text-xs text-gray-600">{challenge.progress}% completed</p>
 				</div>
@@ -150,13 +153,15 @@
 		<h2 class="mb-6 text-center text-2xl font-semibold text-purple-300">Check Your Grammar</h2>
 		<div class="rounded-lg bg-white p-6 shadow-md transition-all hover:shadow-lg">
 			<div class="mb-4 flex items-center space-x-4">
-				<div class="rounded-full bg-blue-100 p-3">
-					<svelte:component this={checkYourGrammarChallenge.icon} class="h-6 w-6 text-blue-500" />
+				<div class="rounded-full bg-purple-100 p-3">
+					<svelte:component this={checkYourGrammarChallenge.icon} class="h-6 w-6 text-purple-500" />
 				</div>
 				<h3 class="text-lg font-semibold text-gray-500">{checkYourGrammarChallenge.title}</h3>
 			</div>
 			<p class="mb-4 text-sm text-gray-600">{checkYourGrammarChallenge.description}</p>
-			<button class="rounded-lg bg-blue-500 px-4 py-2 text-white transition-all hover:bg-blue-600">
+			<button
+				class="rounded-lg bg-purple-500 px-4 py-2 text-white transition-all hover:bg-purple-600"
+			>
 				Start Quiz
 			</button>
 		</div>
@@ -203,3 +208,8 @@
 		</div>
 	</section>
 </div>
+
+<!-- Footer Section -->
+<footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
+	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+</footer>

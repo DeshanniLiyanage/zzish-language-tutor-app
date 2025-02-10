@@ -19,7 +19,7 @@
 		<div
 			class="flex items-center rounded-xl bg-white p-6 shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
 		>
-			<Languages class="mr-6 h-14 w-14 text-blue-500" />
+			<Languages class="mr-6 h-14 w-14 text-purple-500" />
 			<div>
 				<h3 class="text-xl font-semibold text-gray-400">Multiple Languages</h3>
 				<p class="mt-2 text-gray-600">
@@ -64,7 +64,7 @@
 		<div
 			class="flex items-center rounded-xl bg-white p-6 shadow-lg transition-transform hover:scale-105 hover:shadow-xl"
 		>
-			<Mail class="mr-6 h-14 w-14 text-blue-500" />
+			<Mail class="mr-6 h-14 w-14 text-purple-500" />
 			<div>
 				<h3 class="text-xl font-semibold text-gray-500">Email</h3>
 				<p class="mt-2 text-gray-600">support@languagetutor.com</p>
@@ -100,7 +100,7 @@
 					id="name"
 					type="text"
 					required
-					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-blue-600"
+					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-600"
 					placeholder="Your Name"
 				/>
 			</div>
@@ -110,7 +110,7 @@
 					id="email"
 					type="email"
 					required
-					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-blue-600"
+					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-600"
 					placeholder="Your Email"
 				/>
 			</div>
@@ -120,20 +120,25 @@
 					id="message"
 					rows="4"
 					required
-					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-blue-600"
+					class="mt-1 w-full rounded-lg border p-3 text-gray-900 shadow-sm focus:ring-2 focus:ring-purple-600"
 					placeholder="Write your message here"
 				></textarea>
 			</div>
 			<div class="flex justify-center">
 				<button
 					type="submit"
-					class="mt-4 w-full rounded-lg bg-blue-600 py-3 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-600"
+					class="mt-4 w-full rounded-lg bg-purple-600 py-3 text-white hover:bg-purple-700 focus:ring-2 focus:ring-purple-600"
 					>Send Message</button
 				>
 			</div>
 		</form>
 	</div>
 </div>
+
+<!-- Footer Section -->
+<footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
+	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+</footer>
 
 <style>
 	.hover\:shadow-xl:hover {

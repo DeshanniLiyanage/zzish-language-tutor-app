@@ -10,6 +10,9 @@
 	 * @type {string | any[]}
 	 */
 	let conversation = [];
+	/**
+	 * @type {string | null}
+	 */
 	let selectedLanguage = 'en'; // Default language
 	let isLoading = false;
 	let errorMessage = '';
@@ -22,7 +25,7 @@
 	let selectedTopic = null; // Default topic
 
 	/**
-	 * @param {string} language
+	 * @param {string | null} language
 	 */
 	function selectLanguage(language) {
 		selectedLanguage = language;
@@ -34,7 +37,7 @@
 	function selectTopic(topic) {
 		selectedTopic = topic;
 
-		userInput = `Your tutor is going to help you with ${selectedTopic} ..please Send`;
+		userInput = `Teach me vocabulary related to ${selectedTopic}.`;
 	}
 
 	function findLLM() {
@@ -69,7 +72,7 @@
 				},
 				body: JSON.stringify({
 					message: userInput,
-					language: selectedLanguage,
+					targetLanguage: selectedLanguage,
 					topic: selectedTopic
 				})
 			});
@@ -84,7 +87,7 @@
 			conversation = [
 				...conversation,
 				{ role: 'user', content: userInput },
-				{ role: 'tutor', content: data.translatedText }
+				{ role: 'tutor', content: data.reply }
 			];
 
 			// Show achievement popup after every 3 messages
@@ -111,11 +114,7 @@
 		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black"
 	>
 		<div transition:slide class="rounded-lg bg-white p-8 text-center shadow-lg">
-			<img
-				src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif"
-				alt="Achievement GIF"
-				class="mx-auto h-32 w-32"
-			/>
+			<img src="/ZzishLingo_animated.gif" alt="Achievement GIF" class="mx-auto h-32 w-32" />
 			<h2 class="mt-4 text-2xl font-bold text-gray-800">Achievement Unlocked!</h2>
 			<p class="text-gray-600">You've sent 3 messages. Keep it up!</p>
 		</div>
@@ -151,12 +150,18 @@
 	>
 		{#if isLoading}
 			<div class="text-center text-gray-500 italic">Your tutor is typing...</div>
-		{:else}
-			<div class="text-center text-gray-500 italic">
-				Please select a tutor from above and type what you want to learn today..
+		{/if}
+
+		{#if !isLoading && conversation.length == 0}
+			<div class="text-left text-gray-500 italic">Select your tutor from the options above :</div>
+			<div class="text-left text-gray-500 italic">
+				1.Translation Assistance – Send text to your tutor for translation.
 			</div>
-			<div class="text-center text-gray-500 italic">
-				Select a topic from below, so your tutor can give you helpful phrases..
+			<div class="text-left text-gray-500 italic">
+				2.Vocabulary Learning – Choose a topic to expand your vocabulary.
+			</div>
+			<div class="text-left text-gray-500 italic">
+				3.Grammar Correction – Get your grammar reviewed and corrected by your tutor.
 			</div>
 		{/if}
 
@@ -165,8 +170,8 @@
 				transition:fade
 				class={`max-w-[75%] rounded-lg p-3 shadow-lg sm:p-4 ${
 					msg.role === 'user'
-						? 'ml-auto self-end bg-blue-500 text-white'
-						: 'self-start bg-green-500 text-white'
+						? 'ml-auto self-end bg-teal-400 text-white'
+						: 'self-start bg-indigo-400 text-white'
 				}`}
 			>
 				<strong>{msg.role === 'user' ? 'You:' : 'Tutor:'}</strong>
@@ -189,12 +194,12 @@
 			type="text"
 			lang="en"
 			placeholder="Talk to your tutor..."
-			class="flex-1 rounded-lg border-2 border-gray-300 px-3 py-2 shadow-md focus:ring-2 focus:ring-blue-500 focus:outline-none sm:px-4 sm:py-3"
+			class="flex-1 rounded-lg border-2 border-gray-300 px-3 py-2 shadow-md focus:ring-2 focus:ring-purple-500 focus:outline-none sm:px-4 sm:py-3"
 			disabled={isLoading}
 		/>
 		<button
 			on:click={sendMessage}
-			class="flex items-center gap-2 rounded-full bg-blue-500 px-4 py-2 text-white shadow-lg transition-all hover:bg-blue-600 disabled:bg-blue-300 sm:gap-3 sm:px-5 sm:py-3"
+			class="flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-700 to-orange-300 px-4 py-2 text-white shadow-lg transition-all hover:bg-purple-600 disabled:bg-purple-300 sm:gap-3 sm:px-5 sm:py-3"
 			disabled={isLoading}
 		>
 			{#if isLoading}
@@ -209,7 +214,7 @@
 
 <!-- Bottom Section: Topics to Discuss with Tutor -->
 <div
-	class="via-white-600 mx-auto mt-8 flex max-w-7xl flex-col justify-end rounded-lg bg-gradient-to-r from-gray-200 to-purple-200 p-6 px-4 sm:px-6 lg:px-8"
+	class="via-white-600 mx-auto mt-8 flex max-w-7xl flex-col justify-end rounded-lg bg-gradient-to-r from-purple-400 to-gray-400 p-6 px-4 sm:px-6 lg:px-8"
 >
 	<h4 class="mb-4 text-xl font-bold text-white sm:mb-8 sm:text-2xl">Learn Vocabulary</h4>
 	<div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
@@ -235,3 +240,8 @@
 		{/each}
 	</div>
 </div>
+
+<!-- Footer Section -->
+<footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
+	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+</footer>

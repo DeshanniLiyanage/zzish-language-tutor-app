@@ -15,7 +15,7 @@
 			icon: Globe,
 			description: 'Visit the ZZishLang website for resources, tips, and more.',
 			link: '#',
-			color: 'bg-blue-500'
+			color: 'bg-purple-500'
 		},
 		{
 			title: 'Apps',
@@ -79,7 +79,7 @@
 				<!-- Action Button -->
 				<a
 					href={resource.link}
-					class="mt-4 inline-block rounded-lg bg-blue-500 px-4 py-2 font-medium text-white transition hover:bg-blue-600"
+					class="mt-4 inline-block rounded-lg bg-purple-500 px-4 py-2 font-medium text-white transition hover:bg-purple-600"
 				>
 					Explore {resource.title}
 				</a>
@@ -87,3 +87,8 @@
 		{/each}
 	</div>
 </div>
+
+<!-- Footer Section -->
+<footer class="rounded-lg bg-gradient-to-r from-stone-600 to-slate-600 py-6 text-center text-white">
+	<p class="text-sm">© 2025 zzishlang. All rights reserved.</p>
+</footer>

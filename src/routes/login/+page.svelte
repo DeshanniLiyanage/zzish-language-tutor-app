@@ -37,7 +37,7 @@
 			/>
 			<button
 				on:click={navigateToPage}
-				class="w-full rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+				class="w-full rounded-lg bg-purple-500 px-4 py-2 text-white hover:bg-purple-600"
 			>
 				Login
 			</button>
